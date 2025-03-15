@@ -1,5 +1,5 @@
 // backend/controllers/favoriteController.js
-import Favorite from "../models/Favourite";
+import Favorite from "../models/Favourite.js";
 
 export async function toggleFavorite(req, res) {
   const { userId, campaignId } = req.body;

@@ -7,7 +7,7 @@ import authRoutes from "./routes/authRoutes.js";
 import transactionRouter from "./routes/transactionRoutes.js";
 import profileRouter from "./routes/profileRouter.js";
 import notificationRouter from "./routes/notificationRoutes.js";
-import favoriteRouter from "./routes/favoriteRoutes.js";
+import favoriteRouter from "./routes/favouriteRoutes.js";
 import { verifyToken } from "./middlewares/authMiddleware.js";
 import cors from "cors";
 import morgan from "morgan";

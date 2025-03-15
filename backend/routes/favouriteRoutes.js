@@ -1,10 +1,13 @@
 // backend/routes/favoriteRoutes.js
 import express from "express";
-import * as favoriteController from "../controllers/FavoriteController";
+import {
+  toggleFavorite,
+  getFavoriteStatus,
+} from "../controllers/FavoriteController.js";
 
 const router = express.Router();
 
-router.post("/toggle", favoriteController.toggleFavorite);
-router.get("/", favoriteController.getFavoriteStatus);
+router.post("/toggle", toggleFavorite);
+router.get("/", getFavoriteStatus);
 
 export default router;
