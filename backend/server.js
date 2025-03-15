@@ -7,6 +7,7 @@ import authRoutes from "./routes/authRoutes.js";
 import transactionRouter from "./routes/transactionRoutes.js";
 import profileRouter from "./routes/profileRouter.js";
 import notificationRouter from "./routes/notificationRoutes.js";
+import favoriteRouter from "./routes/favoriteRoutes.js";
 import { verifyToken } from "./middlewares/authMiddleware.js";
 import cors from "cors";
 import morgan from "morgan";
@@ -39,6 +40,7 @@ app.use("/api/transaction", transactionRouter);
 app.use("/api/profile", profileRouter);
 app.use("/api/notification", notificationRouter);
 app.use("/api/assets", express.static("assets"));
+app.use("/api/favourite", favoriteRouter);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
