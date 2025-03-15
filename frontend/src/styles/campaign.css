@@ -242,3 +242,29 @@
     width: 100%;
   }
 }
+.favorite-heart {
+  position: absolute;
+  bottom: 10px; /* Positioned at the bottom */
+  right: 10px; /* Positioned at the left */
+  background: transparent;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 24px; /* Heart size */
+  transition: color 0.3s ease;
+}
+
+.heart-icon {
+  display: inline-block;
+  color: #ccc; /* Empty heart */
+}
+
+.favorite-heart:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Ensure the campaign header or parent container is relatively positioned */
+.campaign-header {
+  position: relative;
+}

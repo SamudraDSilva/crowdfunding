@@ -13,6 +13,7 @@ const Campaign = () => {
   const [transactionLoading, setTransactionLoading] = useState(false); // New loading state
   const { user } = useAuthContext();
   const { dispatch } = useNotificationContext();
+  const [isFavorite, setIsFavorite] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -140,15 +141,43 @@ const Campaign = () => {
         } else {
           console.error("Error: Failed to fetch campaign");
         }
+
+        if (user) {
+          const favoriteResponse = await api.get(
+            `/favorites?userId=${user._id}&campaignId=${id}`
+          );
+          if (favoriteResponse.status === 200) {
+            setIsFavorite(favoriteResponse.data.isFavorite);
+          }
+        }
       } catch (error) {
-        console.error("Error fetching campaign:", error);
+        console.error("Error fetching campaign or favorite status:", error);
       } finally {
         setLoading(false); // Set loading to false once data is fetched
       }
     };
 
     fetchCampaign();
-  }, [id, transactionLoading]);
+  }, [id, transactionLoading, user]);
+
+  const handleToggleFavorite = async () => {
+    if (!user) {
+      alert("Please Log in");
+      return;
+    }
+
+    try {
+      const response = await api.post("/favorites/toggle", {
+        userId: user._id,
+        campaignId: id,
+      });
+      if (response.status === 200) {
+        setIsFavorite(response.data.isFavorite);
+      }
+    } catch (error) {
+      console.error("Error toggling favorite:", error);
+    }
+  };
 
   const filePath = campaign.image ? campaign.image.replace("\\", "/") : null;
   const imageUrl = filePath
@@ -178,6 +207,13 @@ const Campaign = () => {
         <h2>{campaign.title}</h2>
         <p>by {campaign.owner?.username}</p>
         <img src={imageUrl} alt="Campaign" className="campaign-img" />
+        <button
+          onClick={handleToggleFavorite}
+          className={`favorite-heart ${isFavorite ? "favorited" : ""}`}
+          disabled={transactionLoading}
+        >
+          <span className="heart-icon">{isFavorite ? "❤️" : "🤍"}</span>
+        </button>
       </div>
 
       <div className="campaign-stats">

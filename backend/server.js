@@ -40,7 +40,7 @@ app.use("/api/transaction", transactionRouter);
 app.use("/api/profile", profileRouter);
 app.use("/api/notification", notificationRouter);
 app.use("/api/assets", express.static("assets"));
-app.use("/api/favourite", favoriteRouter);
+app.use("/api/favorites", favoriteRouter);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
