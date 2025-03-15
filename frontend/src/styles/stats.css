@@ -1,0 +1,85 @@
+.stats-section {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.subtitle {
+  position: relative;
+  margin-top: 30px;
+  font-size: 15px;
+  color: #ad1313;
+}
+
+.stats-box {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+  width: 100%; /* Make it responsive */
+  max-width: 1000px;
+  min-height: 150px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+  padding: 20px;
+  background-color: #fbfbfb;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stat-item {
+  flex: 1;
+  min-width: 150px; /* Ensures responsiveness */
+  text-align: center;
+  padding: 10px;
+}
+
+.stat-item h3 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #2d2d2d;
+}
+
+.stat-item p {
+  margin: 5px 0 0;
+  color: #757575;
+  font-size: 14px;
+}
+
+/* Hide dividers on small screens */
+.divider {
+  padding: 0px 50px; /* Reduce padding for better spacing */
+  border-left: 1px solid #b1adad;
+  border-right: 1px solid #bdbaba;
+}
+
+/* 📌 Responsive Adjustments */
+@media (max-width: 768px) {
+  .stats-box {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px;
+  }
+
+  .stat-item {
+    min-width: 100%; /* Make items full width */
+    padding: 15px 0;
+  }
+
+  .divider {
+    display: none; /* Remove dividers on small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .stat-item h3 {
+    font-size: 20px; /* Slightly smaller font */
+  }
+
+  .stat-item p {
+    font-size: 12px;
+  }
+}

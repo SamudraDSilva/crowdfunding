@@ -1,0 +1,406 @@
+.navbar {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+  padding: 10px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added shadow */
+  background-color: #fff;
+}
+
+.navbar-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.navbar-row2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-logo a {
+  font-size: 24px;
+  font-weight: bold;
+  color: #45dab7;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+/* File: src/components/SearchBox.css */
+.search-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.search-wrapper input {
+  width: 100%;
+  padding: 8px 40px 8px 30px; /* Padding for icon */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.search-icon {
+  position: absolute;
+  top: 60%;
+  right: 15px;
+  transform: translateY(-50%);
+  pointer-events: none; /* So the icon doesn't block input interaction */
+  color: #888;
+}
+
+.search-wrapper input:focus {
+  border-color: #28a745; /* Highlight border when focused */
+}
+
+.search-icon svg {
+  width: 16px;
+  height: 16px;
+  fill: #888;
+}
+
+.navbar-categories ul {
+  position: relative;
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  font-weight: bold;
+}
+
+.navbar-categories p {
+  text-decoration: none;
+  color: #989e9b;
+  font-size: 14px;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.navbar-categories p:hover {
+  color: #28a745;
+}
+
+p.selected-category {
+  font-weight: bold;
+  color: #28a745; /* Change to highlight color */
+}
+
+.navbar-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Maintain spacing */
+  white-space: nowrap; /* Prevent wrapping */
+}
+
+.navbar-buttons .btn {
+  padding: 8px 12px;
+  margin-left: 10px;
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.navbar-buttons .btn-primary {
+  background-color: #28a745;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-buttons .btn-primary:hover {
+  background-color: #218838;
+}
+
+.btn-secondary {
+  background-color: #ffffff;
+  border: 1px solid #8e8e8e;
+  transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+  color: #fff;
+  background-color: rgb(24, 202, 101);
+  border: 1px solid #8e8e8e;
+}
+
+/* For spacing between rows */
+.navbar-row:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding: 10px 15px; /* Less padding for smaller screens */
+  }
+
+  .navbar-row {
+    flex-direction: column;
+    align-items: center; /* Center the items */
+    justify-content: center;
+    width: 100%;
+  }
+
+  .navbar-logo a {
+    font-size: 20px; /* Smaller font size for logo */
+    margin-bottom: 10px; /* Adds space for mobile */
+  }
+
+  .navbar-categories ul {
+    flex-direction: column; /* Stack categories vertically */
+    align-items: center;
+    gap: 10px; /* Spacing between items */
+  }
+
+  .navbar-categories a {
+    font-size: 16px; /* Slightly bigger font size for easier tapping */
+  }
+
+  .navbar-buttons .btn {
+    width: 100%; /* Make buttons take full width on mobile */
+    margin-left: 0; /* Removes margin */
+  }
+
+  .navbar-row2 {
+    display: none; /* Optionally hide row2 for smaller screens */
+  }
+
+  /* User Dropdown */
+  .user-dropdown {
+    gap: 10px; /* Increase space between username and avatar */
+    justify-content: flex-start; /* Align items to the left on mobile */
+    width: 100%; /* Full width for dropdown */
+  }
+
+  .dropdown-menu {
+    width: 200px; /* Wider dropdown on mobile */
+  }
+
+  .dropdown-item {
+    padding: 12px; /* Bigger clickable area */
+    font-size: 16px; /* Larger text for easier reading */
+  }
+}
+.user-avatar {
+  width: 35px; /* Adjust size as needed */
+  height: 35px; /* Ensure height matches the width for a perfect circle */
+  border-radius: 50%; /* Makes the avatar circular */
+  object-fit: cover; /* Ensures the image covers the container and crops correctly */
+  border: 2px solid #ddd; /* Optional: Border for a polished look */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow for the avatar */
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  position: absolute;
+  top: 100%; /* Position below the username */
+  right: 0; /* Align to the right */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 8px 0;
+  z-index: 10;
+  width: 150px;
+  opacity: 0; /* Start hidden */
+  visibility: hidden; /* Hide dropdown initially */
+  transition: opacity 0.3s ease, visibility 0s 0.3s; /* Fade in/out with delay */
+}
+
+/* Show dropdown on hover or active state */
+.user-dropdown:hover .dropdown-menu {
+  opacity: 1; /* Show the dropdown */
+  visibility: visible; /* Make it visible */
+  transition: opacity 0.3s ease, visibility 0s 0s; /* Show with a fade-in effect */
+}
+
+/* Dropdown Item */
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 8px 0;
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Add smooth transition for background color */
+}
+.admin {
+  text-align: center;
+  justify-content: center;
+  text-decoration: none;
+}
+.dropdown-item:hover {
+  background-color: #f1f1f1; /* Highlight on hover */
+}
+
+/* Optional: Adding colors for the username and dropdown */
+
+.user-dropdown .dropdown-item:hover {
+  background-color: #d3d3d3; /* Green background for items on hover */
+  color: rgb(0, 0, 0); /* Text color change when hovered */
+}
+/* User Dropdown Container */
+.user-dropdown {
+  position: relative;
+  display: flex; /* Use flexbox to align children */
+  align-items: center; /* Vertically center items */
+  justify-content: center; /* Horizontally center items */
+  gap: 8px; /* Space between avatar and name */
+  cursor: pointer;
+  z-index: 10; /* Ensure this has a higher z-index than other elements */
+}
+
+/* Username hover effect */
+.username {
+  font-size: 16px;
+  color: #333;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  z-index: 11; /* Ensure it's above the background and dropdown */
+}
+
+.username:hover {
+  background-color: #dddd;
+}
+
+/* Notification Bell Icon */
+
+.notification-icon {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin-left: 5px; */
+}
+
+.notification-count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: #e74c3c;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 5px;
+  font-size: 12px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.notification-count.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Notification Dropdown */
+.notification-dropdown {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  max-width: 320px;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  padding: 10px 15px;
+  max-height: 450px;
+  overflow-y: auto;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.notification-dropdown.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(10px);
+}
+
+/* Notification List Items */
+.notification-dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.notification-dropdown li {
+  font-size: 14px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f3f3f3;
+  color: #555;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: background-color 0.3s ease, padding-left 0.3s ease;
+  cursor: pointer;
+  background-color: #f9f9f9;
+}
+
+/* Hover effect for individual notification items */
+.notification-dropdown li:hover {
+  background-color: #e2e2e2;
+  padding-left: 15px;
+}
+
+.notification-dropdown li:last-child {
+  border-bottom: none;
+}
+
+/* Expanded notification text */
+.notification-dropdown li.expanded {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+  /* background-color: #e5e5e5; */
+}
+
+/* Limit text to 2 lines for collapsed state */
+.notification-dropdown li.collapsed {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.clear-notifications {
+  background: transparent;
+  border: 2px solid red;
+  padding: 8px 20px;
+  color: red;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 5px;
+  border-radius: 30px; /* Rounded corners */
+  transition: all 0.3s ease; /* Smooth transition for effects */
+  text-transform: uppercase; /* Capitalize text for a more modern feel */
+  display: inline-flex;
+  align-items: center;
+}
+
+.clear-notifications:hover {
+  background: red; /* Red background on hover */
+  color: white; /* White text on hover */
+  border-color: red; /* Border remains red */
+  box-shadow: 0 4px 6px rgba(255, 0, 0, 0.3); /* Subtle shadow effect */
+}
+
+.clear-notifications:focus {
+  outline: none; /* Remove the outline when focused */
+  box-shadow: 0 0 0 4px rgba(255, 0, 0, 0.5); /* Focused state with red shadow */
+}

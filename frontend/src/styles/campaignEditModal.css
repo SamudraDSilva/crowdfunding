@@ -1,0 +1,248 @@
+/* Modal Overlay (Background) */
+
+/* Modal Container */
+.modal-content {
+  background: linear-gradient(135deg, #ffffff, #f3f4f6);
+  padding: 2rem;
+  border-radius: 15px;
+  width: 500px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  text-align: left;
+  position: relative;
+  z-index: 1001;
+  max-height: 80vh;
+  overflow-y: auto;
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Modal Heading */
+.modal-content h2 {
+  font-size: 24px;
+  color: #444;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Labels */
+.modal-content label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+/* Inputs, Selects, Textareas */
+.modal-content input,
+.modal-content select,
+.modal-content textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fefefe;
+  margin-bottom: 20px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal-content input:focus,
+.modal-content select:focus,
+.modal-content textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+  outline: none;
+}
+
+.modal-content input[type="datetime-local"] {
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 14px;
+  color: #333;
+  background-color: #fefefe;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal-content input[type="datetime-local"]:hover {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.1);
+}
+
+.modal-content input[type="datetime-local"]:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 8px rgba(0, 86, 179, 0.2);
+  outline: none;
+}
+
+/* Textarea Resize Disabled */
+.modal-content textarea {
+  resize: none;
+}
+
+/* Custom File Input */
+.modal-content input[type="file"] {
+  display: none;
+}
+
+.file-input-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  background-color: #fefefe;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.file-input-wrapper:hover {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.1);
+}
+
+.file-input-wrapper span {
+  font-size: 14px;
+  color: #666;
+}
+
+.file-input-wrapper button {
+  padding: 5px 10px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.file-input-wrapper button:hover {
+  background-color: #0056b3;
+}
+
+/* Styled datetime-local input */
+.modal-content input[type="datetime-local"] {
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 14px;
+  color: #333;
+  background-color: #fefefe;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal-content input[type="datetime-local"]:hover {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.1);
+}
+
+.modal-content input[type="datetime-local"]:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 8px rgba(0, 86, 179, 0.2);
+  outline: none;
+}
+
+/* Buttons */
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.modal-content button {
+  width: 48%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(135deg, #1ce94f, #1a8024);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content button:hover {
+  background: linear-gradient(135deg, #1c8450, #00803a);
+  transform: scale(1.02);
+}
+
+.modal-content button:active {
+  background: linear-gradient(135deg, #0c9523, #0f5000);
+  transform: scale(0.98);
+}
+
+.modal-content button:last-of-type {
+  background: linear-gradient(135deg, #cd666e, #f06674);
+}
+
+.modal-content button:last-of-type:hover {
+  background: linear-gradient(135deg, #e8c2c6, #dd8994);
+}
+
+/* Error and Success Messages */
+.modal-content p {
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.modal-content p[style*="color: red"] {
+  color: #ea828a;
+}
+
+.modal-content p[style*="color: green"] {
+  color: #2a9d8f;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .modal-content h2 {
+    font-size: 22px;
+  }
+
+  .modal-content button {
+    font-size: 14px;
+  }
+}
+.image-preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Ensure it takes full width */
+  margin-top: 10px;
+}

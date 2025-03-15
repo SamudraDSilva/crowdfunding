@@ -1,0 +1,145 @@
+/* Login Modal Container */
+.login-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centers the modal */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Modal Box */
+.modal {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  position: relative;
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #666;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #000;
+  transform: scale(1.1);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* Login Form */
+.login-form {
+  margin-top: 10px;
+  padding: 20px 10px;
+}
+
+.login-form h2 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Input Fields */
+.login-form input[type="email"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.login-form input:focus {
+  border-color: #0bcd66;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 255, 60, 0.5);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+/* Login Button */
+.login {
+  background-color: #3de33b;
+  color: rgb(254, 245, 245);
+  padding: 12px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.login:hover {
+  background-color: #1bb300;
+  transform: scale(1.02);
+}
+
+.login:disabled {
+  background-color: #d6d6d6;
+  color: #8a8a8a;
+  cursor: not-allowed;
+}
+
+/* Signup Link */
+.signup-link {
+  font-size: 14px;
+  text-align: center;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.link-text {
+  color: #007bff;
+  font-weight: 500;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.link-text:hover {
+  color: #0056b3;
+}
+
+/* Error Message */
+.error {
+  color: #dc3545;
+  background-color: #f8d7da;
+  padding: 10px;
+  margin-top: 15px;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

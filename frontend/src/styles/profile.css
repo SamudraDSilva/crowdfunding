@@ -1,0 +1,293 @@
+/* General Profile Container */
+.profile-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.rank-title {
+  font-size: 22px;
+  color: #007bff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Column Styling */
+.column {
+  flex: 1;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.column:hover {
+  transform: translateY(-5px);
+}
+
+/* Created Campaigns & Donations */
+.campaigns-column,
+.donations-column {
+  background: #f8f9fa;
+}
+
+h2 {
+  text-align: center;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+/* Donated Campaigns */
+.donated-campaigns {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.donated-campaign-card {
+  background: #fff;
+  padding: 8px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.donated-campaign-card:hover {
+  transform: scale(1.02);
+}
+
+.donation-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.donation-amount {
+  font-size: 18px;
+  font-weight: bold;
+  color: #28a745;
+}
+
+.donation-time {
+  font-size: 14px;
+  color: gray;
+}
+
+/* Editable Field Section */
+.editable-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  transition: height 0.3s ease-in-out; /* Smooth transition when editing */
+  height: auto;
+}
+
+.profile-text {
+  font-size: 16px;
+  color: #333;
+  flex-grow: 1;
+}
+
+.editable-field input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: border 0.3s ease-in-out;
+  width: 100%; /* Ensure it takes full width of the container */
+  height: 30px; /* Initial height of the input */
+  overflow: hidden;
+}
+
+.editable-field.active input {
+  height: 40px; /* Height when input is activated (adjust as needed) */
+  overflow: visible;
+}
+
+.editable-field .edit-icon {
+  cursor: pointer;
+  font-size: 18px;
+  color: #007bff;
+}
+
+.editable-field .edit-icon:hover {
+  color: #0056b3;
+}
+
+/* Profile Form */
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profile-form input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: border 0.3s ease-in-out;
+}
+
+.profile-form input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.profile-form button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.profile-form button:hover {
+  background-color: #218838;
+}
+
+/* Set a fixed height for each section */
+.campaigns-column,
+.donations-column {
+  max-height: 400px; /* Adjust based on preference */
+  overflow-y: auto; /* Enables vertical scrolling */
+  padding-right: 10px; /* Prevents scrollbar from overlapping content */
+}
+
+/* Make scrollbars look better (optional) */
+.campaigns-column::-webkit-scrollbar,
+.donations-column::-webkit-scrollbar {
+  width: 8px;
+}
+
+.campaigns-column::-webkit-scrollbar-thumb,
+.donations-column::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.campaigns-column::-webkit-scrollbar-track,
+.donations-column::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Campaign & Donation Cards */
+
+/* Limit the number of visible items */
+.campaigns-column,
+.donations-column {
+  max-height: 350px; /* Adjust to show only a few at a time */
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .profile-container {
+    flex-direction: column;
+  }
+
+  .column {
+    width: 100%;
+  }
+}
+
+.password-field {
+  display: flex;
+  gap: 10px;
+}
+
+.total-donations {
+  text-align: center;
+  color: #218838;
+  margin: 20px 0;
+}
+.award-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Award Image Styling */
+.award-image {
+  max-width: 150px; /* Adjust based on your design */
+  height: auto;
+  z-index: 5;
+}
+
+/* Floating Particles */
+.award-container::before,
+.award-container::after {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(239, 243, 16, 0.7), transparent);
+  border-radius: 50%;
+  z-index: 0;
+  animation: floatingParticles 4s infinite alternate ease-in-out;
+}
+
+.award-container::after {
+  animation-delay: 2s; /* Stagger the animation for a floating effect */
+}
+
+@keyframes floatingParticles {
+  0% {
+    transform: scale(1) translateY(-10px);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.3) translateY(10px);
+    opacity: 0.3;
+  }
+}
+
+.column h2 {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  color: #44b94a; /* Gold color for a premium feel */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+/* Underline effect */
+.column h2::after {
+  content: "";
+  width: 50px;
+  height: 4px;
+  background: #20d657;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+  animation: underlineGlow 1.5s infinite alternate ease-in-out;
+}
+
+/* Subtle glowing effect */
+@keyframes underlineGlow {
+  0% {
+    width: 50px;
+    opacity: 0.8;
+  }
+  100% {
+    width: 80px;
+    opacity: 0.4;
+  }
+}

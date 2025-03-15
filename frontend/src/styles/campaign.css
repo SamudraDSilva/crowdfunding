@@ -1,0 +1,244 @@
+/* Base Styles */
+.campaign-container {
+  max-width: 1000px;
+  margin: 10px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.campaign-header {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.campaign-header h2 {
+  font-size: 32px;
+  color: #333;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.campaign-header p {
+  font-size: 14px;
+  color: #555;
+  text-transform: capitalize;
+}
+
+.campaign-img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-top: 15px;
+  transition: transform 0.3s ease;
+}
+
+.campaign-img:hover {
+  transform: scale(1.005);
+}
+
+/* Grid Layout for Campaign Details */
+.campaign-stats,
+.progress-text,
+.campaign-progress,
+.campaign-backers,
+.campaign-pledge-levels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.stat {
+  flex: 1 1 30%;
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.campaign-progress {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #76c796;
+  border-radius: 8px;
+  transition: width 1s ease;
+}
+
+.progress-text {
+  flex: 1 1 30%;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.progress-text p {
+  font-size: 14px;
+  color: #555;
+  padding: 10px;
+  border: 1px solid rgb(178, 178, 178);
+  border-radius: 10px;
+}
+
+/* Campaign Backers Section */
+.campaign-backers p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Pledge Levels */
+.campaign-pledge-levels {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.pledge-level {
+  padding: 10px 20px;
+  font-size: 14px;
+  background-color: #f0ad4e;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.pledge-level:hover {
+  background-color: #f08d23;
+  transform: translateY(-2px);
+}
+
+/* Donation Section */
+.donation-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.donation-input {
+  width: 180px;
+  padding: 10px;
+  font-size: 20px;
+  color: #6a6a6a;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border 0.3s ease;
+}
+
+/* Remove number input arrows for Webkit browsers (Chrome, Safari) */
+.donation-input::-webkit-outer-spin-button,
+.donation-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Remove number input arrows for Firefox */
+.donation-input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Optional: Remove the default outline */
+.donation-input:focus {
+  outline: none;
+}
+
+.donation-input:focus {
+  border-color: #76c7c0;
+  outline: none;
+}
+
+.donation-button,
+.edit-button,
+.back-campaign-button {
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.donation-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.donation-button:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+}
+
+.edit-button {
+  background-color: #ff6b6b;
+  color: white;
+}
+
+.edit-button:hover {
+  background-color: #ff4747;
+  transform: translateY(-2px);
+}
+
+.back-campaign-button {
+  background-color: #68c36b;
+  color: white;
+}
+
+.back-campaign-button:hover {
+  background-color: #4caf50;
+  transform: translateY(-2px);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .campaign-container {
+    padding: 10px;
+  }
+
+  .campaign-stats,
+  .campaign-progress,
+  .campaign-backers {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .campaign-pledge-levels {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .donation-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .donation-input {
+    width: 100%;
+  }
+
+  .pledge-level {
+    width: 100%;
+  }
+}
