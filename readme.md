@@ -59,6 +59,7 @@ CrowdFunding/
 5. **Running the Project**
    Start the backend:
    cd backend
+   node seed.js
    npm run dev
 
    Start the frontend: In a new terminal window
